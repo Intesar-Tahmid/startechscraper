@@ -15,3 +15,5 @@ class StartechSpider(scrapy.Spider):
         next_page = response.css('ul.pagination li a:contains("NEXT")::attr(href)').get()
         if next_page is not None: #If a next page exists then follow it
             yield response.follow(next_page, callback=self.parse)
+#To run type "scrapy crawl startech -O startech101.json"
+#You can save as csv file as well
